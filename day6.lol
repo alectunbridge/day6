@@ -30,6 +30,11 @@ HAI 1.2
     FOUND YR letters
   IF U SAY SO
   
+  HOW IZ I APPEND_TO_RECORD_2 YR character AN YR letters
+    letters R SMOOSH letters AN character MKAY
+    FOUND YR letters
+  IF U SAY SO
+
   
   I HAS A answer ITZ 0
   I HAS A file ITZ I IZ STDIO'Z OPEN YR "input.txt" AND YR "r" MKAY
@@ -41,6 +46,7 @@ HAI 1.2
       VISIBLE "Successfully opened the file for reading"
       I HAS A lastCharacter ITZ ""
       I HAS A letters ITZ "" 
+      I HAS A groupSize ITZ 0
       IM IN YR fileLoop
         I HAS A character ITZ I IZ STDIO'Z LUK YR file AN YR 1 MKAY
         I HAS A length ITZ I IZ STRING'Z LEN YR character MKAY
@@ -51,15 +57,26 @@ HAI 1.2
             answer R SUM OF answer AN I IZ STRING'Z LEN YR letters MKAY
             GTFO
           NO WAI
+
             BOTH OF BOTH SAEM ":)" AN lastCharacter AN BOTH SAEM ":)" AN character
             O RLY?
               YA RLY
                 BTW new record
-                  answer R SUM OF answer AN I IZ STRING'Z LEN YR letters MKAY
-                  letters R ""
+                VISIBLE letters
+                VISIBLE groupSize
+                answer R SUM OF answer AN I IZ STRING'Z LEN YR letters MKAY
+                letters R ""
+                groupSize R 0
               NO WAI
-                letters R I IZ APPEND_TO_RECORD YR character AN YR letters MKAY
-            OIC  
+                BTW append to record
+                NOT BOTH SAEM ":)" AN character
+                O RLY?
+                  YA RLY
+                    letters R I IZ APPEND_TO_RECORD YR character AN YR letters MKAY
+                  NO WAI
+                    groupSize R SUM OF groupSize AN 1
+                OIC
+              OIC  
         OIC
         lastCharacter R character
       IM OUTTA YR fileLoop
