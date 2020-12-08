@@ -1,6 +1,36 @@
 HAI 1.2
   CAN HAS STDIO?
   CAN HAS STRING?
+  
+  HOW IZ I APPEND_TO_RECORD YR character AN YR letters
+    BTW append to record
+    NOT BOTH SAEM ":)" AN character
+    O RLY?
+      YA RLY
+        I HAS A index ITZ 0
+        I HAS A found ITZ FAIL
+        length R I IZ STRING'Z LEN YR letters MKAY
+        IM IN YR lettersLoop UPPIN YR index TIL BOTH SAEM index AN SUM OF length AN 1
+        I HAS A char ITZ I IZ STRING'Z AT YR letters AN YR index MKAY
+        BOTH SAEM char AN character
+        O RLY?
+          YA RLY
+            BTW skip character
+            found R WIN
+        OIC
+        IM OUTTA YR lettersLoop
+        NOT found
+        O RLY?
+          YA RLY
+            letters R SMOOSH letters AN character MKAY
+        OIC
+      NO WAI
+        BTW strip newlines 
+    OIC
+    FOUND YR letters
+  IF U SAY SO
+  
+  
   I HAS A answer ITZ 0
   I HAS A file ITZ I IZ STDIO'Z OPEN YR "input.txt" AND YR "r" MKAY
   I IZ STDIO'Z DIAF YR file MKAY
@@ -28,35 +58,7 @@ HAI 1.2
                   answer R SUM OF answer AN I IZ STRING'Z LEN YR letters MKAY
                   letters R ""
               NO WAI
-                BTW append to record
-                NOT BOTH SAEM ":)" AN character
-                O RLY?
-                  YA RLY
-                    I HAS A index ITZ 0
-                    I HAS A found ITZ FAIL
-                    length R I IZ STRING'Z LEN YR letters MKAY
-                    IM IN YR lettersLoop UPPIN YR index TIL BOTH SAEM index AN SUM OF length AN 1
-                    I HAS A char ITZ I IZ STRING'Z AT YR letters AN YR index MKAY
-                    BTW VISIBLE SMOOSH "char-" char " character-" character MKAY
-                    BOTH SAEM char AN character
-                    O RLY?
-                      YA RLY
-                        BTW skip character
-                        found R WIN
-                      NO WAI
-                        BTW not found yet
-                    OIC
-                    IM OUTTA YR lettersLoop
-                    NOT found
-                    O RLY?
-                      YA RLY
-                        letters R SMOOSH letters AN character MKAY
-                      NO WAI
-                        BTW VISIBLE "skippin"
-                    OIC
-                  NO WAI
-                  BTW strip newlines 
-                OIC
+                letters R I IZ APPEND_TO_RECORD YR character AN YR letters MKAY
             OIC  
         OIC
         lastCharacter R character
